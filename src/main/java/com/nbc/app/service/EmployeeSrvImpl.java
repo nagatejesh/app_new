@@ -24,7 +24,7 @@ public class EmployeeSrvImpl implements EmployeeSrv{
 
     @Override
     public Employee findEmployeeById(Long id) {
-        return employeeSrvc.findById(id).orElseThrow();
+        return employeeSrvc.findById(id).orElseGet(()->new Employee());
     }
 
     @Override
