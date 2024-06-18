@@ -12,8 +12,12 @@ import java.util.List;
 @RequestMapping(value = "/api/v1/")
 public class HomeController {
 
+    private final EmployeeSrvImpl employeeSrv;
+
     @Autowired
-    private EmployeeSrvImpl employeeSrv;
+    public HomeController(EmployeeSrvImpl employeeSrv) {
+        this.employeeSrv = employeeSrv;
+    }
 
     @GetMapping("")
     public String welcome(){

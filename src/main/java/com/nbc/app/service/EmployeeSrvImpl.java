@@ -9,8 +9,13 @@ import java.util.List;
 
 @Service
 public class EmployeeSrvImpl implements EmployeeSrv{
+    public final EmployeeRepo employeeSrvc;
+
     @Autowired
-    public EmployeeRepo employeeSrvc;
+    public EmployeeSrvImpl(EmployeeRepo employeeSrvc) {
+        this.employeeSrvc = employeeSrvc;
+    }
+
 
     @Override
     public List<Employee> getAllEmployees() {
@@ -24,7 +29,7 @@ public class EmployeeSrvImpl implements EmployeeSrv{
 
     @Override
     public Employee findEmployeeById(Long id) {
-        return employeeSrvc.findById(id).orElseGet(()->new Employee());
+        return employeeSrvc.findById(id).orElseGet(Employee::new);
     }
 
     @Override
