@@ -23,8 +23,8 @@ public class EmployeeSrvImpl implements EmployeeSrv{
     }
 
     @Override
-    public Long saveEmployee(Employee employee) {
-        return employeeSrvc.save(employee).getId();
+    public Employee saveEmployee(Employee employee) {
+        return employeeSrvc.save(employee);
     }
 
     @Override
